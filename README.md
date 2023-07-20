@@ -1,7 +1,7 @@
 git-flow-hooks
 ==============
 
-Some useful hooks for [git-flow (AVH Edition)][1].
+Some useful hooks for [git-flow (CJS Edition)][1].
 
 What does it do?
 ================
@@ -20,10 +20,10 @@ Install
 Clone this repository somewhere on your disk.
 
 ```sh
-git clone git@github.com:jaspernbrouwer/git-flow-hooks.git
+git clone git@github.com:CJ-Systems/gitflow-hooks.git
 ```
 
-Whenever your read `/path/to/git-flow-hooks`, replace it with the actual path to your clone/working copy.
+Whenever your read `/path/to/gitflow-hooks`, replace it with the actual path to your clone/working copy.
 
 ### OS X
 
@@ -44,12 +44,12 @@ Initialize git-flow.
 git flow init
 ```
 
-It will ask you some questions, the last will be `Hooks and filters directory?`, which you can answer with `/path/to/git-flow-hooks`.
+It will ask you some questions, the last will be `Hooks and filters directory?`, which you can answer with `/path/to/gitflow-hooks`.
 
 If you've already initialized git-flow, you can still set/change the path manually.
 
 ```sh
-git config gitflow.path.hooks /path/to/git-flow-hooks
+git config gitflow.path.hooks /path/to/gitflow-hooks
 ```
 
 ### Prevention hooks
@@ -61,7 +61,7 @@ In other words, after activating like described above, these hooks still won't k
 
 I see 2 options:
 
-1. In stead of activating like described above, remove the `.git/hooks` directory and make it a symbolic link (`ln -s /path/to/git-flow-hooks .git/hooks`).
+1. In stead of activating like described above, remove the `.git/hooks` directory and make it a symbolic link (`ln -s /path/to/gitflow-hooks .git/hooks`).
 2. Create a symbolic link to the `pre-commit` file (`ln -s /path/to/git-flow-hooks/pre-commit .git/hooks/pre-commit`).
 
 If you know a better way to use the `pre-commit` hooks, please let me know by opening an issue!
@@ -72,11 +72,11 @@ Update
 Simply pull any updates from origin.
 
 ```sh
-cd /path/to/git-flow-hooks
+cd /path/to/gitflow-hooks
 git pull
 ```
 
-That's it, all your repositories that have git-flow initialized and use `/path/to/git-flow-hooks` as hooks and filters directory will be up-to-date.
+That's it, all your repositories that have git-flow initialized and use `/path/to/gitflow-hooks` as hooks and filters directory will be up-to-date.
 
 Configuration
 -------------
@@ -85,17 +85,17 @@ This is completely optional!
 
 #### Global
 
-Copy the file `/path/to/git-flow-hooks/modules/git-flow-hooks-config.sh.dist` to `/path/to/git-flow-hooks/git-flow-hooks-config.sh` (hooks directory) and change whatever you like.
+Copy the file `/path/to/gitflow-hooks/modules/git-flow-hooks-config.sh.dist` to `/path/to/gitflow-hooks/git-flow-hooks-config.sh` (hooks directory) and change whatever you like.
 
 #### Local
 
-Copy the file `/path/to/git-flow-hooks/modules/git-flow-hooks-config.sh.dist` to `.git/git-flow-hooks-config.sh` (repository root) and change whatever you like.
+Copy the file `/path/to/gitflow-hooks/modules/git-flow-hooks-config.sh.dist` to `.git/git-flow-hooks-config.sh` (repository root) and change whatever you like.
 
 Any settings in the local configuration file will override settings in the global one. So remove settings you _don't_ want to override.
 
 #### git-flow
 
-[git-flow (AVH Edition)][1] has some useful configuration options too.
+[git-flow (CJS Edition)][1] has some useful configuration options too.
 See its [wiki][5] for a complete list.
 Or you can type `git flow <command> [<subcommand>] --help`.
 
@@ -116,9 +116,9 @@ If the commands are run with version, that version will be used (no bumping).
 Bump messages
 -------------
 
-git-flow-hooks bumps the version in a commit with the message "Bump version to %version%".
+gitflow-hooks bumps the version in a commit with the message "Bump version to %version%".
 
-If you want to use a different message, you can change it in the git-flow-hooks configuration.
+If you want to use a different message, you can change it in the gitflow-hooks configuration.
 
 Automatic tag messages
 ----------------------
@@ -130,7 +130,7 @@ git config gitflow.hotfix.finish.message "Hotfix %tag%"
 git config gitflow.release.finish.message "Release %tag%"
 ```
 
-If you like, you can change the tag-placeholder (`%tag%` in the example above) in the git-flow-hooks configuration.
+If you like, you can change the tag-placeholder (`%tag%` in the example above) in the gitflow-hooks configuration.
 
 Plugins
 -------
@@ -140,22 +140,22 @@ Unfortunately, that would take some time and testing to implement.
 
 While it's in progress, you can try to use the following forks:
 
-* [Send notifications with changelog to Slack and HipChat](https://github.com/exAspArk/git-flow-hooks/tree/notify#sending-notifications) ([diff](https://github.com/jaspernbrouwer/git-flow-hooks/compare/master...exAspArk:notify))
+* [Send notifications with changelog to Slack and HipChat](https://github.com/exAspArk/git-flow-hooks/tree/notify#sending-notifications) ([diff](https://github.com/CJ-Systems/gitflow-hooks/compare/master...exAspArk:notify))
 
 License
 =======
 
-git-flow-hooks is published under The MIT License, see the [LICENSE][2] file.
+gitflow-hooks is published under The MIT License, see the [LICENSE][2] file.
 
-Note that these hooks are built for [git-flow (AVH Edition)][1] by Peter van der Does, which has its own [licenses][3].
+Note that these hooks are built for [git-flow (CJS Edition)][1] by CJ Systems, which has its own [licenses][3].
 
 The scripts for preventing master and merge marker commits are based on [git-hooks][4] by Sitebase.
 
-[1]: https://github.com/petervanderdoes/gitflow
-[2]: https://github.com/jaspernbrouwer/git-flow-hooks/blob/master/LICENSE
-[3]: https://github.com/petervanderdoes/gitflow/blob/master/LICENSE
+[1]: https://github.com/CJ-Systems/gitflow-cjs
+[2]: https://github.com/CJ-Systems/gitflow-hooks/blob/master/LICENSE
+[3]: https://github.com/CJ-Systems/gitflow-cjs/blob/master/LICENSE
 [4]: https://github.com/Sitebase/git-hooks
-[5]: https://github.com/petervanderdoes/gitflow/wiki/Reference:-Configuration
+[5]: https://github.com/CJ-Systems/gitflow-cjs/wiki/Reference:-Configuration
 [6]: http://www.gnu.org/software/coreutils
 [7]: http://www.macports.org/
 [8]: http://brew.sh/
